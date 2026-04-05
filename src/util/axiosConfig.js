@@ -28,3 +28,20 @@ axiosConfig.interceptors.request.use((config) => {
 }, (error) => {
     return Promise.reject(error);
 });
+
+
+//response interceptor
+axiosConfig.interceptors.response.use((response) => {
+    return response;
+}, (error) => {
+    if(error.response){
+        if(error.response.status === 401){
+            window.location.href="/login";
+        }else if (error.response.status === 500){
+            console.error("Server error. Please try again later")
+        }
+    } else if(error.code === "ECONNABORTED"){
+        console.error("Request timeout. Please try again.");
+    }
+    return Promise.reject(error);
+});
