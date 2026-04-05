@@ -1,6 +1,6 @@
 const App = () => {
   return (
-    <div>Money Manager</div>
+    <div class="text-3xl font-bold underline">Money Manager</div>
   )
 }
 
