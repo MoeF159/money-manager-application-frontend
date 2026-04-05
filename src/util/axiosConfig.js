@@ -1,7 +1,8 @@
 import axios from "axios";
+import { BASE_URL } from "./ApiEndpoints";
 
 const axiosConfig = axios.create({
-    baseURL: "https://money-manager-application-gbib.onrender.com/api/v1.0",
+    baseURL: BASE_URL,
     headers: {
         "Content-Type": "application/json",
         Accept: "application/json"
