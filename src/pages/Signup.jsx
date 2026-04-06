@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {assets} from "../assets/assets.js"
@@ -32,7 +31,7 @@ const Signup = () => {
                             {/* Profile Image */}
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
-                            {/* Input Component */}
+                            {/* Input Components */}
                             <Input 
                                 value={fullName}
                                 onChange={(e) => setFullName(e.target.value)}
@@ -65,7 +64,7 @@ const Signup = () => {
                             </p>
                         )}
                         <button 
-                        className="bg-green-800 text-white w-full py-3 text-lg font-medium rounded-lg" 
+                        className="bg-green-700 text-white w-full py-3 text-lg font-medium rounded-lg" 
                         type="submit"
                         >
                             SIGN UP
@@ -77,7 +76,7 @@ const Signup = () => {
                             to="/login"
                             className="font-medium text-primary underline hover:text-primary-dark transition-colors"
                             > 
-                                Login
+                                Login!
                             </Link>
                         </p>
 
