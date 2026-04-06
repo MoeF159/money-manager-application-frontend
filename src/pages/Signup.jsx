@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {assets} from "../assets/assets.js"
 import Input from "../components/Input.jsx";
+import { validateEmail } from "../util/validation.js";
 
 const Signup = () => {
 
@@ -11,6 +12,28 @@ const Signup = () => {
     const[error, setError] = useState(null);
 
     const navigate = useNavigate();
+
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+
+        //basic validation
+        if(!fullName.trim()){
+            setError("Please enter your full name");
+            return;
+        }
+
+        if(!validateEmail(email)){
+            setError("Please enter valid email address");
+            return;
+        }
+
+        if(!password.trim()){
+            setError("Please enter your password");
+            return;
+        }
+
+        console.log(fullName, email, password);
+    }
 
     return (
         <div className="h-screen w-full relative flex items-center justify-center overflow-hidden">
@@ -26,7 +49,7 @@ const Signup = () => {
                         Start Tracking Your Finances by joining Money Manager
                     </p>
 
-                    <form onSubmit="" className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="flex justify-center mb-6">
                             {/* Profile Image */}
                         </div>

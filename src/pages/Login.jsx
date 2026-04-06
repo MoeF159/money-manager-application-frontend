@@ -62,7 +62,7 @@ const Login = () => {
                             to="/signup"
                             className="font-medium text-primary underline hover:text-primary-dark transition-colors"
                             > 
-                                Register!
+                                Signup!
                             </Link>
                         </p>
 
