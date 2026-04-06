@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {assets} from "../assets/assets.js"
 import Input from "../components/Input.jsx";
 
@@ -57,7 +57,29 @@ const Signup = () => {
                                 type={"password"}
                                 />
                             </div>
+
                         </div>
+                        {error && (
+                            <p className="text-red-800 text-sm text-center bg-red-50 p-2 rounded">
+                                {error}
+                            </p>
+                        )}
+                        <button 
+                        className="bg-green-800 text-white w-full py-3 text-lg font-medium rounded-lg" 
+                        type="submit"
+                        >
+                            SIGN UP
+                        </button>
+
+                        <p className="text-sm text-slate-800 text-center mt-6">
+                            Already have an account?{" "}
+                            <Link 
+                            to="/login"
+                            className="font-medium text-primary underline hover:text-primary-dark transition-colors"
+                            > 
+                                Login
+                            </Link>
+                        </p>
 
                     </form>
                 </div>
