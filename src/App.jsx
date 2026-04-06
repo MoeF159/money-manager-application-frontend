@@ -7,6 +7,7 @@ import Category from "./pages/Category.jsx";
 import Filter from "./pages/Filter.jsx";
 import Login from "./pages/Login.jsx";
 import Signup from "./pages/Signup.jsx";
+import { Navigate } from "react-router-dom";
 
 const App = () => {
   return (
