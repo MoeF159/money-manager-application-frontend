@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_URL } from "./util/apiEndpoints";
+import { BASE_URL } from "../util/apiEndpoints";
 
 const axiosConfig = axios.create({
     baseURL: BASE_URL,
@@ -46,3 +46,5 @@ axiosConfig.interceptors.response.use((response) => {
     }
     return Promise.reject(error);
 });
+
+export default axiosConfig
