@@ -3,6 +3,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { assets } from "../assets/assets.js";
 import Input from "../components/Input.jsx";
 import { validateFullName, validateEmail } from "../util/validation.js";
+import axiosConfig from "../util/axiosConfig.js";
+import {API_ENDPOINTS} from "../util/apiEndpoints.js"
+import toast from "react-hot-toast";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -61,7 +64,7 @@ const Signup = () => {
   };
 
   // Submit handler
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Re-validate all fields on submit
@@ -74,7 +77,26 @@ const Signup = () => {
 
     // Everything is valid → submit
     console.log("Signup info:", form);
-    // navigate("/dashboard"); 
+    
+    // signup API call
+    try {
+        const response = await axiosConfig.post(API_ENDPOINTS.REGISTER, {
+            fullName : form.fullName,
+            email : form.email,
+            password : form.password
+        });
+        
+        if(response.status === 201){
+            toast.success("Profile created successfully");
+            navigate("/login");
+        }
+    } catch (err) {
+        console.error("Signup failed:", err);
+        // Show error to user
+        alert(err.response?.data?.message || "Signup failed");
+    }
+
+
   };
 
   return (
