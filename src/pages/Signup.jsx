@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {assets} from "../assets/assets.js"
+import Input from "../components/Input.jsx";
 
 const Signup = () => {
 
@@ -25,6 +26,40 @@ const Signup = () => {
                     <p className="text-sm text-slate-700 text-center mb-8">
                         Start Tracking Your Finances by joining Money Manager
                     </p>
+
+                    <form onSubmit="" className="space-y-4">
+                        <div className="flex justify-center mb-6">
+                            {/* Profile Image */}
+                        </div>
+                        <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
+                            {/* Input Component */}
+                            <Input 
+                                value={fullName}
+                                onChange={(e) => setFullName(e.target.value)}
+                                label={"Full Name"}
+                                placeholder={"John Doe"}
+                                type={"text"}
+                            />
+                            <Input 
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                label={"Email Address"}
+                                placeholder={"name@example.com"}
+                                type={"text"}
+                            />
+                            
+                            <div className="col-span-2">
+                                <Input 
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                label={"Password"}
+                                placeholder={"********"}
+                                type={"password"}
+                                />
+                            </div>
+                        </div>
+
+                    </form>
                 </div>
             </div>
 
